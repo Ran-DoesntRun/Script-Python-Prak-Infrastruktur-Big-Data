@@ -20,7 +20,7 @@ print(path)
 
 
 Ukuran File DataSet
-print(os.stat('1/movies_dataset.csv').st_size/(1024 * 1024))
+print(os.stat('movies_dataset.csv').st_size/(1024 * 1024))
 
 
 # In[1]:
@@ -46,7 +46,7 @@ sqlcontext = SQLContext(sc)
 
 
 #MEMBACA DATA
-data = spark.read.csv('1/movies_dataset.csv', inferSchema=True, header=True)
+data = spark.read.csv('movies_dataset.csv', inferSchema=True, header=True)
 
 #MEMBUAT ID UNTUK SETIAP MOVIE
 id_movie = data.select("Movie_Name").distinct().withColumn("Movie_Id", monotonically_increasing_id())
